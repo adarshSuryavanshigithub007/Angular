@@ -1,12 +1,33 @@
-<app-header/>
+<app-header />
 <main>
   <ul id="users">
-    <li><app-user [avatar]="users[0].avatar" [name]="users[0].name"></app-user></li>
-    <li><app-user [avatar]="users[1].avatar" [name]="users[1].name"></app-user></li>
-    <li><app-user [avatar]="users[2].avatar" [name]="users[2].name"></app-user></li>
-    <li><app-user [avatar]="users[3].avatar" [name]="users[3].name"></app-user></li>
-    <li><app-user [avatar]="users[4].avatar" [name]="users[4].name"></app-user></li>
-    <li><app-user [avatar]="users[5].avatar" [name]="users[5].name"></app-user></li>
+    <li *ngFor="let user of users">
+      <app-user [user]="user" (select)="onSelectUser($event)"></app-user>
+    </li>
+    <!-- old method -->
 
+    <!-- @for (user of users; track user.id){
+      <li >
+        <app-user
+          [user]="user"
+          (select)="onSelectUser($event)"
+        ></app-user>
+      </li>
+    } -->
+    <!-- update angular method  -->
   </ul>
+  <app-tasks
+    *ngIf="selectedUser; else notSelectedUser"
+    [name]="selectedUser.name"
+  />
+
+  <ng-template #notSelectedUser>
+    <p id="fallback">Selected user to see there</p>
+  </ng-template>
+
+  <!-- @if(selectedUser){
+    <app-task [name]="selectedUser.name"/>
+  }@else{
+
+  } -->
 </main>

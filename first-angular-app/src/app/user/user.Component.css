@@ -17,6 +17,7 @@ button {
   width: 100%;
   min-width: 10rem;
   text-align: left;
+  /* box-shadow:0 1px 8px rgba(0, 0, 0, 0.6); */
 }
 
 button:hover,
