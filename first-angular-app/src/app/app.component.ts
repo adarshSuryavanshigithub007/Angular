@@ -4,7 +4,7 @@ import { UserComponent } from './user/user.Component';
 import { DUMMY_USERS } from './dummy-user'
 
 import { CommonModule } from '@angular/common';
-import { TasksComponent } from './tasks/task.component';
+import { TasksComponent } from './tasks/tasks.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -26,7 +26,7 @@ export class AppComponent {
   onSelectUser(id: string) {
     console.log(id)
     this.selectedUserId = id
-    console.log(id)
+    // console.log(id)
   }
 
 }

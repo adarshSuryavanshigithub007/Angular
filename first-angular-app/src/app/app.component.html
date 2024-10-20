@@ -4,30 +4,13 @@
     <li *ngFor="let user of users">
       <app-user [user]="user" (select)="onSelectUser($event)"></app-user>
     </li>
-    <!-- old method -->
-
-    <!-- @for (user of users; track user.id){
-      <li >
-        <app-user
-          [user]="user"
-          (select)="onSelectUser($event)"
-        ></app-user>
-      </li>
-    } -->
-    <!-- update angular method  -->
   </ul>
   <app-tasks
     *ngIf="selectedUser; else notSelectedUser"
     [name]="selectedUser.name"
+    [userId]="selectedUser.id"
   />
-
   <ng-template #notSelectedUser>
     <p id="fallback">Selected user to see there</p>
   </ng-template>
-
-  <!-- @if(selectedUser){
-    <app-task [name]="selectedUser.name"/>
-  }@else{
-
-  } -->
 </main>
